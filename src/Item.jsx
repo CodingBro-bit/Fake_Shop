@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 
 
@@ -10,6 +11,10 @@ function List({children}){
     )
 
 };
+
+List.propTypes = {
+    children : PropTypes.node.isRequired,
+}
 
 function Avatar({data}){
 
@@ -24,6 +29,18 @@ function Avatar({data}){
     </div>);
 }
 
+Avatar.propTypes = {
+    data : PropTypes.shape({
+        image: PropTypes.string.isRequired,       
+        category: PropTypes.string.isRequired,    
+        description: PropTypes.string,            
+        price: PropTypes.oneOfType([              
+            PropTypes.number,
+            PropTypes.string,
+        ]).isRequired,
+    }).isRequired
+}
+
 export default function Item({data}){
 
 
@@ -35,3 +52,14 @@ export default function Item({data}){
             </List>
     );
 }
+Item.propTypes = {
+    data: PropTypes.shape({
+        image: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        price: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string,
+        ]).isRequired,
+    }).isRequired,
+};
