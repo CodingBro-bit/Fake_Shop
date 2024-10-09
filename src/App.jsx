@@ -14,7 +14,7 @@ export default function App(){
   const addToCard = (data) => {
       setCarditems([...cardItems , data])
   }
-  //
+  
   const loadItems = (shop) => {
 
     const load = [...shop]
