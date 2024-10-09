@@ -1,5 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
-
+import PropTypes from "prop-types";
 
 
 
@@ -13,7 +13,14 @@ export default function Button({data , addToCard}){
         console.log(`added ${data.title}`)
     }   
 
-   
+Button.propTypes = {
+    data: PropTypes.shape({
+        id : PropTypes.number.isRequired,
+        title : PropTypes.string.isRequired
+    }).isRequired,
+    addToCard : PropTypes.func.isRequired,
+};
+
     return(
         <div>
 
